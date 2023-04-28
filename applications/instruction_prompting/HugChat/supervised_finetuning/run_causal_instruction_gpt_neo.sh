@@ -1,5 +1,5 @@
-path=/wjn/pre-trained-lm/gpt-neo-1.3B
-# path=/wjn/pre-trained-lm/gpt-neo-2.7B
+# path=/wjn/pre-trained-lm/gpt-neo-1.3B
+path=/wjn/pre-trained-lm/gpt-neo-2.7B
 
 
 model_name=gpt-neo
@@ -11,8 +11,8 @@ model_name=gpt-neo
 # data_path=/wjn/nlp_task_datasets/instruction/all # 500,000
 data_path=/wjn/nlp_task_datasets/instruction/instruction_corpora # 5,000,000 example, 160k group block
 
-# config1: gpt-neo-1.3B ZeRO stage=1, fp16, train_bz=2, gradient_acc=1, num_gpus=4. cost: 31G per gpu.
-# config1: gpt-neo-1.3B ZeRO stage=1, fp16, train_bz=2, gradient_acc=1, num_gpus=4. cost: 39G per gpu.
+# config1: gpt-neo-1.3B ZeRO stage=1, fp16, train_bz=8, gradient_acc=1, num_gpus=4. cost: 31G per gpu.
+# config2: gpt-neo-2.7B ZeRO stage=3, fp16, train_bz=8, gradient_acc=1, num_gpus=4. cost: 39G per gpu.
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 python3 -m torch.distributed.launch --nproc_per_node=4 --master_port 6013 hugnlp_runner.py \
@@ -42,5 +42,5 @@ python3 -m torch.distributed.launch --nproc_per_node=4 --master_port 6013 hugnlp
 --cache_dir=/wjn/.cache \
 --overwrite_output_dir \
 --user_defined="causal_lm_name=$model_name language=en" \
---deepspeed=./deepspeed/ds_config_fp16_z1.json \
+--deepspeed=./deepspeed/ds_config_fp16_z3.json \
 --fp16

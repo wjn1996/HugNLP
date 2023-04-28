@@ -10,9 +10,7 @@ model_name=opt
 # data_path=/wjn/nlp_task_datasets/instruction/all # 500,000
 data_path=/wjn/nlp_task_datasets/instruction/instruction_corpora
 
-
-# config1: opt-1.3b ZeRO stage=3, fp16, train_bz=2, gradient_acc=2, num_gpus=8. cost: 28G per gpu.
-# config2: opt-6.7b ZeRO stage=3, fp16, lora dim=8 train_bz=2, gradient_acc=2, num_gpus=8. cost: 25G per gpu.
+# config1: opt-6.7b ZeRO stage=3, fp16, train_bz=2, gradient_acc=2, num_gpus=8. cost: 28G per gpu.
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 python3 -m torch.distributed.launch --nproc_per_node=8 --master_port 6013 hugnlp_runner.py \
