@@ -17,6 +17,9 @@
 
 </div>
 
+### HugNLP is released at @HugAILab , you can see at [https://github.com/HugAILab/HugNLP](https://github.com/HugAILab/HugNLP).
+### HugNLP框架在 @HugAILab 发布，仓库迁移至[https://github.com/HugAILab/HugNLP](https://github.com/HugAILab/HugNLP).
+
 # About HugNLP
 
 HugNLP is a novel development and application library based on [Hugging Face](https://huggingface.co/) for improving the convenience and effectiveness of NLP researchers. The founder and main developer is [Jianing Wang](https://wjn1996.github.io/). The collaborators are [Nuo Chen](https://github.com/nchen909) and [Qiushi Sun](https://github.com/QiushiSun).
